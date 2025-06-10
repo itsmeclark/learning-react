@@ -24,10 +24,24 @@ function App() {
   }
 
   function moveTaskUp(index){
-    setTask(tasks.filter((arr, i)=> --arr[i]))
+
+    if(index > 0){
+      const updateTask = [...tasks];
+      console.log(updateTask);
+      [updateTask[index], updateTask[index - 1]] = [updateTask[index-1], updateTask[index]];
+      console.log(updateTask);
+      setTask(updateTask);
+    }
+   
   }
   function moveTaskDown(index){
-
+    if(index != tasks.length-1){
+      const updateTask = [...tasks];
+      console.log(updateTask);
+      [updateTask[index], updateTask[index + 1]] = [updateTask[index+1], updateTask[index]];
+      console.log(updateTask);
+      setTask(updateTask);
+    }
   }
 
   return (
