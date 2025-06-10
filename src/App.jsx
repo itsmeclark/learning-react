@@ -11,16 +11,20 @@ function App() {
   }
 
   function addTask(){
-    setTask(t => [...t, newTask])
-    setNewTask("")
+    if(newTask.trim() !== ''){
+        setTask(t => [...t, newTask])
+        setNewTask("")
+    }
+    
   }
 
   function deleteTask(index){
-
+    setTask(tasks.filter((_, i)=>
+      i !== index))
   }
 
   function moveTaskUp(index){
-
+    setTask(tasks.filter((arr, i)=> --arr[i]))
   }
   function moveTaskDown(index){
 
